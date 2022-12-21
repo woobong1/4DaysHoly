@@ -5,13 +5,20 @@ using UnityEngine;
 public class Check : MonoBehaviour
 {
     [SerializeField] string myTag = "";
-    private void OnTriggerEnter2D(Collider2D collision)
+    ObjectInit objectInit = null;
+
+    private void Awake()
     {
-        if (collision.CompareTag(myTag))
+        objectInit = GetComponent<ObjectInit>();
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.collider.CompareTag(myTag))
         {
-            Debug.Log("´ÙÀ½²¨ ³»³ö");
+            Debug.Log("ÇÕÃ¼");
             Destroy(collision.gameObject);
             Destroy(gameObject);
-        }
-    }
+        }        
+    }    
 }

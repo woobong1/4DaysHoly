@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8600496367254834711}
   - component: {fileID: 1854476145208401181}
   - component: {fileID: -3380027085539558267}
+  - component: {fileID: 3344248775587175447}
   m_Layer: 0
   m_Name: 6_pudding
   m_TagString: 6_pudding
@@ -185,3 +186,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 647c4a93563974b4f8b89cba0db8765c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  flag: 0
+--- !u!114 &3344248775587175447
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8600496367254834795}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8091cdeee6452c4096475c11d319436, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myTag: 6_pudding

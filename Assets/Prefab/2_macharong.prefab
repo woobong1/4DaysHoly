@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5583697578800439838}
   - component: {fileID: -8552251794262256338}
   - component: {fileID: -566087831932039166}
+  - component: {fileID: 3012926302687025796}
   m_Layer: 0
   m_Name: 2_macharong
   m_TagString: 2_macharong
@@ -177,3 +178,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 647c4a93563974b4f8b89cba0db8765c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  flag: 0
+--- !u!114 &3012926302687025796
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5583697578800439826}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8091cdeee6452c4096475c11d319436, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myTag: 2_macharong
