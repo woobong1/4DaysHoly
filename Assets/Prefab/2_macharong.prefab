@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5583697578800439839}
   - component: {fileID: 5583697578800439824}
-  - component: {fileID: 5583697578800439838}
   - component: {fileID: -8552251794262256338}
   - component: {fileID: -566087831932039166}
   - component: {fileID: 3012926302687025796}
@@ -88,63 +87,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!60 &5583697578800439838
-PolygonCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5583697578800439826}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.56, y: 2.56}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 0.93, y: -0.55}
-      - {x: 0.96, y: -0.47}
-      - {x: 0.97999996, y: -0.39999998}
-      - {x: 1.05, y: -0.16}
-      - {x: 1.05, y: 0.03}
-      - {x: 1, y: 0.11}
-      - {x: 0.98999995, y: 0.28}
-      - {x: 0.96, y: 0.38}
-      - {x: 0.87, y: 0.52}
-      - {x: 0.75, y: 0.64}
-      - {x: 0.59, y: 0.76}
-      - {x: 0.29999998, y: 0.88}
-      - {x: 0.11, y: 0.90999997}
-      - {x: -0.24, y: 0.90999997}
-      - {x: -0.44, y: 0.84999996}
-      - {x: -0.7, y: 0.7}
-      - {x: -0.87, y: 0.52}
-      - {x: -0.97999996, y: 0.29999998}
-      - {x: -0.98999995, y: 0.099999994}
-      - {x: -1.06, y: 0.049999997}
-      - {x: -1.06, y: -0.16}
-      - {x: -1.01, y: -0.26999998}
-      - {x: -1.02, y: -0.42999998}
-      - {x: -0.96, y: -0.56}
-      - {x: -0.71, y: -0.76}
-      - {x: -0.56, y: -0.83}
-      - {x: -0.29999998, y: -0.9}
-      - {x: -0.19999999, y: -0.90999997}
-      - {x: 0.17999999, y: -0.90999997}
-      - {x: 0.35999998, y: -0.9}
-      - {x: 0.57, y: -0.82}
-      - {x: 0.71999997, y: -0.74}
 --- !u!50 &-8552251794262256338
 Rigidbody2D:
   serializedVersion: 4

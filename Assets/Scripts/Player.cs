@@ -6,6 +6,7 @@ public class Player : MonoBehaviour
 {
     Rigidbody2D rb;
     SpriteRenderer sr;
+    PolygonCollider2D pc;
 
     Vector2 firstScale;
     float limitLeft = -3;
@@ -14,21 +15,21 @@ public class Player : MonoBehaviour
     float timer;
     int ranBoom;
     bool flagClick = false;
-  [HideInInspector]public bool flag = false;
+    bool collClick = false;
+    [HideInInspector] public bool flag = false;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
+        pc = GetComponent<PolygonCollider2D>();
 
-        gameObject.GetComponent<PolygonCollider2D>().enabled = false;
         rb.Sleep();
         firstScale = new Vector2(transform.localScale.x, transform.localScale.y);
         transform.localScale = transform.localScale / 2;
         StartCoroutine(ScaleSize());
         ranBoom = Random.Range(0, 4);
     }
-
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("DeadLine"))
@@ -43,9 +44,11 @@ public class Player : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if(collision.gameObject.CompareTag("DeadLine"))
+        if (collision.gameObject.CompareTag("DeadLine"))
         {
             timer = 0f;
+
+            sr.color = Color.white;
         }
     }
 
@@ -74,12 +77,12 @@ public class Player : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
-            
             if (flagClick == false)
             {
                 rb.velocity = Vector2.zero;
-                StartCoroutine(ColiderAdd());
                 flagClick = true;
+
+                StartCoroutine(ColCall());
             }
             flag = true;
             rb.WakeUp();
@@ -100,14 +103,17 @@ public class Player : MonoBehaviour
         transform.localScale = firstScale;
     }
 
-    IEnumerator ColiderAdd()
-    {
-        yield return new WaitForSeconds(0.2f);
-        gameObject.GetComponent<PolygonCollider2D>().enabled = true;
-    }
-
     void Gameover()
     {
         Destroy(gameObject, ranBoom);
+    }
+
+    IEnumerator ColCall()
+    {
+        if(pc == null)
+        {
+            yield return new WaitForSeconds(0.15f);
+            gameObject.AddComponent<PolygonCollider2D>();
+        }
     }
 }
