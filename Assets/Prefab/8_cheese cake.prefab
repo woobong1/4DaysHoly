@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5346168636020369870}
   - component: {fileID: 5346168636020369871}
   - component: {fileID: 5346168636020369969}
+  - component: {fileID: -7659726577982802633}
   m_Layer: 0
   m_Name: 8_cheese cake
   m_TagString: Untagged
@@ -148,3 +149,24 @@ PolygonCollider2D:
       - {x: -0.02, y: -1.06}
       - {x: 0.13, y: -1.02}
       - {x: 0.24, y: -0.97999996}
+--- !u!50 &-7659726577982802633
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5346168636020369869}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
