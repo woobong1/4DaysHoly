@@ -19,7 +19,7 @@ public class ClickNode : MonoBehaviour
        
         Vector2 target = Camera.main.ScreenToWorldPoint(mPosition);
 
-        drawObj[ranNum].transform.position = new Vector2(0, mPosition.y); 
+        drawObj[ranNum].gameObject.transform.position = new Vector2(0, mPosition.y); 
             
 
         //if (Input.GetMouseButtonDown(0))
