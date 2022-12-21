@@ -39,8 +39,6 @@ public class ObjectInit : MonoBehaviour
             {
                 p.flag = true;
             }
-            
-            Debug.Log(SyntheticObject.transform.position + " Inst");
             count = 0;
         }
     }
