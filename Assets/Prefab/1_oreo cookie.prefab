@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3587004615379869978}
   - component: {fileID: -242575193463522367}
   - component: {fileID: -5781819289706256051}
+  - component: {fileID: -3151656329473936932}
   m_Layer: 0
   m_Name: 1_oreo cookie
   m_TagString: 1_oreo cookie
@@ -183,3 +184,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 647c4a93563974b4f8b89cba0db8765c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  flag: 0
+--- !u!114 &-3151656329473936932
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3587004615379869974}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8091cdeee6452c4096475c11d319436, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myTag: 1_oreo cookie

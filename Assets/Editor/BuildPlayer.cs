@@ -9,7 +9,7 @@ public class BuildPlayer : MonoBehaviour
     public static void JenkinsBuilder()
     {
         BuildPlayerOptions buildPlayerOptions = new BuildPlayerOptions();
-        buildPlayerOptions.scenes = new[] { "Assets/Scenes/SampleScene.unity" };
+        buildPlayerOptions.scenes = new[] { "Assets/Scenes/GameScene.unity" };
         buildPlayerOptions.locationPathName = "Build/4DaysHoly.exe";
         //buildPlayerOptions.locationPathName = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
         buildPlayerOptions.target = BuildTarget.StandaloneWindows64;
