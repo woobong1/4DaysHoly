@@ -8,9 +8,8 @@ public class ClickNode : MonoBehaviour
 
     Vector2 limit = new Vector2(0, 4f);
     int ranNum;
-
-    bool nodeFlag = false;
-
+    bool nodeFlag = true;
+    float timer;
     private void Start()
     {
         ranNum = Random.Range(0, drawObj.Length);
@@ -19,21 +18,23 @@ public class ClickNode : MonoBehaviour
 
     private void Update()
     {
-        if(nodeFlag == true)
+        timer += Time.deltaTime;
+
+        if (Input.GetMouseButtonDown(0) && nodeFlag == true)
         {
+            nodeFlag = false;
+
+            if (nodeFlag == false)
             StartCoroutine(NextDrawObj());
-        }
-        if (Input.GetMouseButtonDown(0))
-        {
-            nodeFlag = true;
         }
     }
 
     IEnumerator NextDrawObj()
     {
-        nodeFlag = false;
         yield return new WaitForSeconds(1.5f);
         ranNum = Random.Range(0, drawObj.Length);
         Instantiate(drawObj[ranNum], limit, Quaternion.identity);
+        nodeFlag = true;
     }
+
 }
