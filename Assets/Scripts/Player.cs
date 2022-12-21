@@ -17,7 +17,6 @@ public class Player : MonoBehaviour
         rb.Sleep();
     }
 
-
     void Update()
     {
         Vector2 mPosition = Input.mousePosition;
