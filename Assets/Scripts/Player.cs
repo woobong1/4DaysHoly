@@ -23,7 +23,9 @@ public class Player : MonoBehaviour
         Vector2 mPosition = Input.mousePosition;
         Vector2 target = Camera.main.ScreenToWorldPoint(mPosition);
 
-        if (flag == false)
+        this.transform.position = new Vector2(target.x, 4);
+
+        if(transform.position.x <= limitLeft)
         {
             this.transform.position = new Vector2(target.x, 4);
             if (transform.position.y >= firstY)
