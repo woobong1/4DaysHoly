@@ -34,10 +34,10 @@ public class ObjectInit : MonoBehaviour
         {
             GameObject SyntheticObject = null;
             SyntheticObject = Instantiate(Resources.Load(name, typeof(GameObject)), position, Quaternion.identity) as GameObject;
-            Player p = null;
-            if (SyntheticObject.TryGetComponent<Player>(out p) == true)
+            Player pleyer = null;
+            if (SyntheticObject.TryGetComponent<Player>(out pleyer) == true)
             {
-                p.flag = true;
+                pleyer.flag = true;
             }
             count = 0;
         }

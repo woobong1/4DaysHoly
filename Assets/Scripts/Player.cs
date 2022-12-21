@@ -15,7 +15,6 @@ public class Player : MonoBehaviour
     float timer;
     int ranBoom;
     bool flagClick = false;
-    bool collClick = false;
     [HideInInspector] public bool flag = false;
 
     private void Start()
