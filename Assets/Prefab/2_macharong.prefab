@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5583697578800439824}
   - component: {fileID: 5583697578800439838}
   - component: {fileID: -8552251794262256338}
+  - component: {fileID: -566087831932039166}
   m_Layer: 0
   m_Name: 2_macharong
   m_TagString: 2_macharong
@@ -158,9 +159,21 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0.8
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &-566087831932039166
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5583697578800439826}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 647c4a93563974b4f8b89cba0db8765c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
