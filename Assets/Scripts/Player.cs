@@ -6,8 +6,8 @@ public class Player : MonoBehaviour
 {
     Rigidbody2D rb;
 
-    float limitLeft = -2.45f;
-    float limitRight = 2.45f;
+    float limitLeft = -3;
+    float limitRight = 3;
     float firstY = 3.8f;
     public bool flag = false;
 
@@ -23,25 +23,27 @@ public class Player : MonoBehaviour
         Vector2 mPosition = Input.mousePosition;
         Vector2 target = Camera.main.ScreenToWorldPoint(mPosition);
 
-        this.transform.position = new Vector2(target.x, 4);
+        //this.transform.position = new Vector2(target.x, 4);
 
-        if(transform.position.x <= limitLeft)
+        if (flag == false)
         {
             this.transform.position = new Vector2(target.x, 4);
-            if (transform.position.y >= firstY)
-            {
-                if (transform.position.x <= limitLeft)
-                {
-                    transform.position = new Vector2(-2.45f, 4);
-                }
 
-                if (transform.position.x >= limitRight)
+                if (transform.position.y >= firstY)
                 {
-                    transform.position = new Vector2(2.45f, 4);
+                    if (transform.position.x <= limitLeft)
+                    {
+                        transform.position = new Vector2(-3, 4);
+                    }
+
+                    if (transform.position.x >= limitRight)
+                    {
+                        transform.position = new Vector2(3, 4);
+                    }
                 }
-            }
+            
+
         }
-
         if (Input.GetMouseButtonDown(0))
         {
             flag = true;
