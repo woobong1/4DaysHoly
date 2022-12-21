@@ -6,6 +6,7 @@ public class Player : MonoBehaviour
 {
     Rigidbody2D rb;
     SpriteRenderer sr;
+    PolygonCollider2D pc;
 
     Vector2 firstScale;
     float limitLeft = -3;
@@ -21,6 +22,7 @@ public class Player : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
+        pc = GetComponent<PolygonCollider2D>();
 
         rb.Sleep();
         firstScale = new Vector2(transform.localScale.x, transform.localScale.y);
@@ -106,7 +108,10 @@ public class Player : MonoBehaviour
 
     IEnumerator ColCall()
     {
-        yield return new WaitForSeconds(0.15f);
-        gameObject.AddComponent<PolygonCollider2D>();
+        if(pc == null)
+        {
+            yield return new WaitForSeconds(0.15f);
+            gameObject.AddComponent<PolygonCollider2D>();
+        }
     }
 }
