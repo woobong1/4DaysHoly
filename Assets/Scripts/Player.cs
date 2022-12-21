@@ -51,7 +51,6 @@ public class Player : MonoBehaviour
         }
     }
 
-
     void Update()
     {
         Vector2 mPosition = Input.mousePosition;

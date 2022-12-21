@@ -237,6 +237,7 @@ GameObject:
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
   - component: {fileID: 519420033}
+  - component: {fileID: 519420034}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -327,21 +328,18 @@ MonoBehaviour:
   - {fileID: 3587004615379869974, guid: 1e73a39d76446f247b46951cc5fcff25, type: 3}
   - {fileID: 5583697578800439826, guid: 8d97c7de05207214888edf01b0738ecd, type: 3}
   - {fileID: 2169370586704794111, guid: fc1b0be55f814114aaafd64f3ab20e70, type: 3}
-  - {fileID: 2183081631653595066, guid: a02431104d515c94eaaf651c92f8b8f2, type: 3}
-  - {fileID: 330240207852726287, guid: 739a6a0f71348514091feea88a80df89, type: 3}
-  - {fileID: 8600496367254834795, guid: 69327ef7f4fc72c4181243d03a1c0391, type: 3}
-  - {fileID: 8575199433087594527, guid: fb1f6481fd2f35048af09862323e7c15, type: 3}
-  - {fileID: 5346168636020369869, guid: d5cc363a62d3ea248a4cbcaf535d1732, type: 3}
-  - {fileID: 5323546104494379861, guid: f85f850b19c0a8d418a8cd97f4c96d9b, type: 3}
-  nodeFlag: 1
-  cookie3: 0
-  cookie4: 0
-  cookie5: 0
-  cookie6: 0
-  cookie7: 0
-  cookie8: 0
-  gameOver: 0
-  combineCheck: 2
+--- !u!114 &519420034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ea2c0edbfbc29a4291186c2c8fc048f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &612825202
 GameObject:
   m_ObjectHideFlags: 0
