@@ -5,22 +5,50 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     Rigidbody2D rb;
+    SpriteRenderer sr;
+    PolygonCollider2D pc;
 
+    Vector2 firstScale;
     float limitLeft = -3;
     float limitRight = 3;
     float firstY = 3.8f;
-    public bool flag = false;
-    Vector2 firstScale;
-   
+    float timer;
+    int ranBoom;
+    bool flagClick = false;
+  [HideInInspector]public bool flag = false;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        sr = GetComponent<SpriteRenderer>();
+        pc = GetComponent<PolygonCollider2D>();
+
         rb.Sleep();
         firstScale = new Vector2(transform.localScale.x, transform.localScale.y);
         transform.localScale = transform.localScale / 2;
         StartCoroutine(ScaleSize());
-       
+        ranBoom = Random.Range(0, 4);
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("DeadLine"))
+        {
+            timer += Time.deltaTime;
+            Debug.Log(collision.name);
+            if (timer > 1f)
+            {
+                sr.color = Color.red;
+            }
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if(collision.gameObject.CompareTag("DeadLine"))
+        {
+            timer = 0f;
+        }
     }
 
 
@@ -29,29 +57,32 @@ public class Player : MonoBehaviour
         Vector2 mPosition = Input.mousePosition;
         Vector2 target = Camera.main.ScreenToWorldPoint(mPosition);
 
-        //this.transform.position = new Vector2(target.x, 4);
-
         if (flag == false)
         {
             this.transform.position = new Vector2(target.x, 4);
 
-                if (transform.position.y >= firstY)
+            if (transform.position.y >= firstY)
+            {
+                if (transform.position.x <= limitLeft)
                 {
-                    if (transform.position.x <= limitLeft)
-                    {
-                        transform.position = new Vector2(-3, 4);
-                    }
-
-                    if (transform.position.x >= limitRight)
-                    {
-                        transform.position = new Vector2(3, 4);
-                    }
+                    transform.position = new Vector2(-3, 4);
                 }
-            
 
+                if (transform.position.x >= limitRight)
+                {
+                    transform.position = new Vector2(3, 4);
+                }
+            }
         }
+
         if (Input.GetMouseButtonDown(0))
         {
+            if(flagClick == false)
+            {
+                rb.velocity = Vector2.zero;
+
+                flagClick = true;
+            }
             flag = true;
             rb.WakeUp();
         }
@@ -67,8 +98,12 @@ public class Player : MonoBehaviour
 
     IEnumerator ScaleSize2()
     {
-        Debug.Log("큰거왔니?");
         yield return new WaitForSeconds(0.2f);
         transform.localScale = firstScale;
+    }
+
+    void Gameover()
+    {
+        Destroy(gameObject, ranBoom);
     }
 }

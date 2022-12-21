@@ -6,15 +6,18 @@ public class ClickNode : MonoBehaviour
 {
     [SerializeField] GameObject[] drawObj;
     Vector2 limit = new Vector2(0, 4f);
-    bool nodeFlag = true;
-    bool cookie3 = false;
-    bool cookie4 = false;
-    bool cookie5 = false;
-    bool cookie6 = false;
-    bool cookie7 = false;
-    bool cookie8 = false;
+
+    [HideInInspector] public bool nodeFlag = true;
+    [HideInInspector] public bool cookie3 = false;
+    [HideInInspector] public bool cookie4 = false;
+    [HideInInspector] public bool cookie5 = false;
+    [HideInInspector] public bool cookie6 = false;
+    [HideInInspector] public bool cookie7 = false;
+    [HideInInspector] public bool cookie8 = false;
+    [HideInInspector] public bool gameOver = false;
+    [HideInInspector] public int combineCheck = 2;
+
     int ranNum;
-    public int combineCheck = 2;
 
     private void Start()
     {
@@ -24,20 +27,21 @@ public class ClickNode : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0) && nodeFlag == true)
+        if (gameOver == false)
         {
-            nodeFlag = false;
+            if (Input.GetMouseButtonDown(0) && nodeFlag == true)
+            {
+                nodeFlag = false;
 
-            if (nodeFlag == false)
-                StartCoroutine(NextDropObj());
+                if (nodeFlag == false)
+                    StartCoroutine(NextDropObj());
+            }
+            NextCombine();
         }
-        NextCombine();
     }
-
 
     void NextCombine()
     {
-
         if (cookie3 == true && combineCheck < 2)
         {
             combineCheck += 1;
@@ -67,10 +71,11 @@ public class ClickNode : MonoBehaviour
             combineCheck += 1;
         }
     }
+
     IEnumerator NextDropObj()
     {
         yield return new WaitForSeconds(1.5f);
-        
+
         ranNum = Random.Range(0, combineCheck);
         Instantiate(drawObj[ranNum], limit, Quaternion.identity);
         nodeFlag = true;
