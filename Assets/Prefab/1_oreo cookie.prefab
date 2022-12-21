@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3587004615379869979}
   - component: {fileID: 3587004615379869972}
   - component: {fileID: 3587004615379869978}
+  - component: {fileID: -242575193463522367}
   m_Layer: 0
   m_Name: 1_oreo cookie
   m_TagString: Untagged
@@ -148,3 +149,24 @@ PolygonCollider2D:
       - {x: 0.089999996, y: -0.93}
       - {x: 0.35999998, y: -0.85999995}
       - {x: 0.53, y: -0.77}
+--- !u!50 &-242575193463522367
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3587004615379869974}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0

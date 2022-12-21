@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5323546104494379864}
   - component: {fileID: 5323546104494379863}
   - component: {fileID: 5323546104494379865}
+  - component: {fileID: -4263725971706177489}
   m_Layer: 0
   m_Name: 9_apple
   m_TagString: Untagged
@@ -153,3 +154,24 @@ PolygonCollider2D:
       - {x: 0.9, y: -1.02}
       - {x: 0.93, y: -0.96}
       - {x: 0.93, y: -0.88}
+--- !u!50 &-4263725971706177489
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5323546104494379861}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
