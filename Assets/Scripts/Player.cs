@@ -47,6 +47,8 @@ public class Player : MonoBehaviour
         if (collision.gameObject.CompareTag("DeadLine"))
         {
             timer = 0f;
+
+            sr.color = Color.white;
         }
     }
 
