@@ -22,39 +22,26 @@ public class Check : MonoBehaviour
     {
         if (collision.collider.CompareTag(myTag))
         {
-            Debug.Log("collision.collider.CompareTag");
             for (int i = 0; i < objectInit.cookieObjectTest.Count; i++)
-            {
-                Debug.Log("for");
-
+            {   
                 if (myTag == objectInit.cookieObjectTest[i] && objectInit.cookieObjectTest.Count >= i + 1)
                 {
-                    Debug.Log("if1");
-
                     nextName = objectInit.cookieObjectTest[i + 1];
                 }
             }
 
             if (collision.gameObject.transform.position.y > gameObject.transform.position.y)
             {
-                Debug.Log("if2");
-                Debug.Log(gameObject.transform.position);
-
                 TransInfo(nextName, transform.position);
             }
 
             else if (collision.gameObject.transform.position.y < gameObject.transform.position.y)
             {
-                Debug.Log("else if");
-                Debug.Log(gameObject.transform.position);
                 TransInfo(nextName, collision.gameObject.transform.position);
             }
 
             else if (collision.gameObject.transform.position.y == gameObject.transform.position.y)
             {
-                Debug.Log("else if2");
-                Debug.Log(gameObject.transform.position);
-
                 Vector2 vec2 = Vector2.zero;
                 float getPosX = (transform.position.x + collision.gameObject.transform.position.x) * 0.5f;
                 float getPosY = (transform.position.y + collision.gameObject.transform.position.y) * 0.5f;

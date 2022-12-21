@@ -328,6 +328,15 @@ MonoBehaviour:
   - {fileID: 3587004615379869974, guid: 1e73a39d76446f247b46951cc5fcff25, type: 3}
   - {fileID: 5583697578800439826, guid: 8d97c7de05207214888edf01b0738ecd, type: 3}
   - {fileID: 2169370586704794111, guid: fc1b0be55f814114aaafd64f3ab20e70, type: 3}
+  nodeFlag: 1
+  cookie3: 0
+  cookie4: 0
+  cookie5: 0
+  cookie6: 0
+  cookie7: 0
+  cookie8: 0
+  gameOver: 0
+  combineCheck: 2
 --- !u!114 &519420034
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -340,6 +349,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ea2c0edbfbc29a4291186c2c8fc048f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cookieObjectTest: []
 --- !u!1 &612825202
 GameObject:
   m_ObjectHideFlags: 0
