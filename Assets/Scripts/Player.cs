@@ -6,7 +6,6 @@ public class Player : MonoBehaviour
 {
     Rigidbody2D rb;
     SpriteRenderer sr;
-    PolygonCollider2D pc;
 
     Vector2 firstScale;
     float limitLeft = -3;
@@ -21,8 +20,8 @@ public class Player : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
-        pc = GetComponent<PolygonCollider2D>();
 
+        gameObject.GetComponent<PolygonCollider2D>().enabled = false;
         rb.Sleep();
         firstScale = new Vector2(transform.localScale.x, transform.localScale.y);
         transform.localScale = transform.localScale / 2;
@@ -35,7 +34,6 @@ public class Player : MonoBehaviour
         if (collision.gameObject.CompareTag("DeadLine"))
         {
             timer += Time.deltaTime;
-            Debug.Log(collision.name);
             if (timer > 1f)
             {
                 sr.color = Color.red;
@@ -76,10 +74,11 @@ public class Player : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
-            if(flagClick == false)
+            
+            if (flagClick == false)
             {
                 rb.velocity = Vector2.zero;
-
+                StartCoroutine(ColiderAdd());
                 flagClick = true;
             }
             flag = true;
@@ -99,6 +98,12 @@ public class Player : MonoBehaviour
     {
         yield return new WaitForSeconds(0.2f);
         transform.localScale = firstScale;
+    }
+
+    IEnumerator ColiderAdd()
+    {
+        yield return new WaitForSeconds(0.2f);
+        gameObject.GetComponent<PolygonCollider2D>().enabled = true;
     }
 
     void Gameover()
