@@ -38,7 +38,6 @@ public class Player : MonoBehaviour
                     transform.position = new Vector2(2.45f, 4);
                 }
             }
-
         }
 
         if (Input.GetMouseButtonDown(0))

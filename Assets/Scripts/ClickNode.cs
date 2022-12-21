@@ -4,33 +4,34 @@ using UnityEngine;
 
 public class ClickNode : MonoBehaviour
 {
-    Player player;
-
     [SerializeField] GameObject[] drawObj;
 
     Vector2 limit = new Vector2(0, 4f);
     int ranNum;
 
+    bool nodeFlag = false;
+
     private void Start()
     {
-       // player = GetComponent<Player>();
         ranNum = Random.Range(0, drawObj.Length);
         Instantiate(drawObj[ranNum], limit, Quaternion.identity);
-
-        player = FindObjectOfType<Player>();
     }
 
     private void Update()
     {
-        if(player.flag == true)
+        if(nodeFlag == true)
         {
             StartCoroutine(NextDrawObj());
         }
-        
+        if (Input.GetMouseButtonDown(0))
+        {
+            nodeFlag = true;
+        }
     }
 
     IEnumerator NextDrawObj()
     {
+        nodeFlag = false;
         yield return new WaitForSeconds(1.5f);
         ranNum = Random.Range(0, drawObj.Length);
         Instantiate(drawObj[ranNum], limit, Quaternion.identity);
