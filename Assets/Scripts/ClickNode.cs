@@ -7,6 +7,9 @@ public class ClickNode : MonoBehaviour
     [SerializeField] GameObject[] drawObj;
     Vector2 limit = new Vector2(0, 4f);
 
+    public List<GameObject> prefabList = new List<GameObject>();
+    public int index = 0;
+
     [HideInInspector] public bool nodeFlag = true;
     [HideInInspector] public bool cookie3 = false;
     [HideInInspector] public bool cookie4 = false;
@@ -24,6 +27,7 @@ public class ClickNode : MonoBehaviour
         ranNum = Random.Range(0, combineCheck);
         Instantiate(drawObj[ranNum], limit, Quaternion.identity);
     }
+
 
     private void Update()
     {

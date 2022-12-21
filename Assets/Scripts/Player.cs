@@ -15,7 +15,6 @@ public class Player : MonoBehaviour
     float timer;
     int ranBoom;
     bool flagClick = false;
-    bool collClick = false;
     [HideInInspector] public bool flag = false;
 
     private void Start()
@@ -110,9 +109,9 @@ public class Player : MonoBehaviour
 
     IEnumerator ColCall()
     {
-        if(pc == null)
+        if(GetComponent<PolygonCollider2D>() == null)
         {
-            yield return new WaitForSeconds(0.15f);
+            yield return new WaitForSeconds(0.1f);
             gameObject.AddComponent<PolygonCollider2D>();
         }
     }
