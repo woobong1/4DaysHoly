@@ -12,4 +12,5 @@ public class ClickNode : MonoBehaviour
         ranNum = Random.Range(0, drawObj.Length);
         Instantiate(drawObj[ranNum], limit, Quaternion.identity);
     }
+
 }

@@ -5,6 +5,16 @@ TagManager:
   serializedVersion: 2
   tags:
   - DeadLine
+  - 0_choco cookie
+  - 1_oreo cookie
+  - 2_macharong
+  - 3_heart cake
+  - 4_dounut
+  - 5_roll cake
+  - 6_pudding
+  - 7_candy corn
+  - 8_cheese cake
+  - 9_apple
   layers:
   - Default
   - TransparentFX

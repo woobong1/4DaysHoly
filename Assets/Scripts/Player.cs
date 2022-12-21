@@ -13,9 +13,6 @@ public class Player : MonoBehaviour
         Vector2 mPosition = Input.mousePosition;
         Vector2 target = Camera.main.ScreenToWorldPoint(mPosition);
 
-
-        Debug.Log(mPosition);
-
         this.transform.position = new Vector2(target.x, 4);
 
         if(transform.position.x <= limitLeft)
