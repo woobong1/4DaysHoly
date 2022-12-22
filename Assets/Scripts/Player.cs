@@ -16,8 +16,6 @@ public class Player : MonoBehaviour
     int ranBoom;
     bool flagClick = false;
     [HideInInspector] public bool flag = false;
-
-    [SerializeField] AudioSource audio = null;
     
     private void Start()
     {

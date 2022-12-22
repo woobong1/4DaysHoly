@@ -6,9 +6,10 @@ public class ClickNode : MonoBehaviour
 {
     [SerializeField] GameObject[] drawObj;
     Vector2 limit = new Vector2(0, 4f);
-    [SerializeField]AudioSource audio = null;
 
     public List<GameObject> prefabList = new List<GameObject>();
+
+    [SerializeField] AudioSource audioSource = null;
 
     int ranNum;
 
@@ -26,8 +27,7 @@ public class ClickNode : MonoBehaviour
 
     private void Start()
     {
-        if(audio.enabled == true)
-        audio.enabled = false;
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -85,21 +85,14 @@ public class ClickNode : MonoBehaviour
         yield return new WaitForSeconds(1.5f);
 
         ranNum = Random.Range(0, combineCheck);
-
         Instantiate(drawObj[ranNum], limit, Quaternion.identity);
-        StartCoroutine(SoundEnabled());
+      
+        audioSource.Play();
         nodeFlag = true;
     }
 
     public void OnStartButton()
     {
         gameStart = true;
-    }
-
-    IEnumerator SoundEnabled()
-    {
-        audio.enabled = true;
-        yield return new WaitForSeconds(0.5f);
-        audio.enabled = false;
     }
 }

@@ -5,13 +5,14 @@ using UnityEngine;
 public class ObjectInit : MonoBehaviour
 {
     public List<string> cookieObjectTest = new List<string>();
-    [SerializeField] AudioSource[] audio = null;
-    
+    AudioSource audioSource = null;
+    public AudioClip[] combineSound = null;
     int ranNum;
+
     private void Awake()
     {
         CookieValueInput();
-       
+        audioSource = GetComponent<AudioSource>();
     }
 
     public void CookieValueInput()
@@ -28,16 +29,12 @@ public class ObjectInit : MonoBehaviour
         cookieObjectTest.Add("9_apple");
     }
 
-    private void Update()
-    {
-       
-    }
 
     public void ObjectSynthetic(string name, Vector2 position)
     {
         GameObject SyntheticObject = null;
         SyntheticObject = Instantiate(Resources.Load(name, typeof(GameObject)), position, Quaternion.identity) as GameObject;
-        StartCoroutine(SoundMix());
+        PlaySound();
         SyntheticObject.AddComponent<PolygonCollider2D>();
         Player pleyer = null;
         if (SyntheticObject.TryGetComponent<Player>(out pleyer) == true)
@@ -46,11 +43,10 @@ public class ObjectInit : MonoBehaviour
         }
     }
 
-    IEnumerator SoundMix()
+    void PlaySound()
     {
-        ranNum = Random.Range(0, audio.Length);
-        audio[ranNum].volume = 1f;
-        yield return new WaitForSeconds(0.2f);
-        audio[ranNum].volume = 0f;
+        ranNum = Random.Range(0, combineSound.Length);
+        audioSource.clip = combineSound[ranNum];
+        audioSource.Play();
     }
 }

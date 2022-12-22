@@ -121,7 +121,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   flag: 0
-  audio: {fileID: 0}
 --- !u!114 &3012926302687025796
 MonoBehaviour:
   m_ObjectHideFlags: 0
