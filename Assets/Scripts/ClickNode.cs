@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class ClickNode : MonoBehaviour
 {
-    [SerializeField] GameObject[] drawObj;
+    [SerializeField] GameObject[] drawObj = null;
+   
     Vector2 limit = new Vector2(0, 4f);
-    [SerializeField]AudioSource audio = null;
 
     public List<GameObject> prefabList = new List<GameObject>();
 
@@ -24,12 +24,7 @@ public class ClickNode : MonoBehaviour
     [HideInInspector] public int index = 0;
     [HideInInspector] public int combineCheck = 2;
 
-    private void Start()
-    {
-        if(audio.enabled == true)
-        audio.enabled = false;
-    }
-
+  
     private void Update()
     {
         if (gameStart == true)
@@ -82,24 +77,15 @@ public class ClickNode : MonoBehaviour
 
     IEnumerator NextDropObj()
     {
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(1.2f);
 
         ranNum = Random.Range(0, combineCheck);
-
         Instantiate(drawObj[ranNum], limit, Quaternion.identity);
-        StartCoroutine(SoundEnabled());
         nodeFlag = true;
     }
 
     public void OnStartButton()
     {
         gameStart = true;
-    }
-
-    IEnumerator SoundEnabled()
-    {
-        audio.enabled = true;
-        yield return new WaitForSeconds(0.5f);
-        audio.enabled = false;
     }
 }

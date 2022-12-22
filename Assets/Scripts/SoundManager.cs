@@ -5,18 +5,18 @@ using UnityEngine.UI;
 
 public class SoundManager : MonoBehaviour
 {
-    [SerializeField] AudioSource audio = null;
+    [SerializeField] AudioSource audio1 = null;
     float timer;
     
     private void Start()
     {
-        audio.volume = 0f;
+        audio1.volume = 0f;
     }
 
     private void Update()
     {
         timer += Time.deltaTime;
         if (timer <= 2)
-            audio.volume = timer / 2;
+            audio1.volume = timer / 4;
     }
 }
