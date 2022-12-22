@@ -29,13 +29,6 @@ public class UIManager : MonoBehaviour
     void Update()
     {
         EndGame();
-
-        curScoreText.text =  savedScore.ToString("0");
-
-        if(Score > savedScore)
-        {
-            PlayerPrefs.SetInt(KeyString, Score);
-        }
     }
 
 
@@ -83,6 +76,16 @@ public class UIManager : MonoBehaviour
             Debug.Log("게임 종료");
             Application.Quit();
 #endif
+        }
+    }
+
+    public void AddScore(int score)
+    {
+        curScoreText.text = savedScore.ToString("0");
+
+        if (Score > savedScore)
+        {
+            PlayerPrefs.SetInt(KeyString, Score);
         }
     }
 }
