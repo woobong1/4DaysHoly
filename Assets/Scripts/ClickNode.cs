@@ -26,6 +26,7 @@ public class ClickNode : MonoBehaviour
 
     private void Start()
     {
+        if(audio.enabled == true)
         audio.enabled = false;
     }
 
