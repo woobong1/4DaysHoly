@@ -26,12 +26,12 @@ public class UIManager : MonoBehaviour
 
         if(PlayerPrefs.HasKey("bestScore"))
         {
-            bestScore = PlayerPrefs.GetInt("bestScore");
+            bestScore = PlayerPrefs.GetFloat("bestScore");
             highScoreText.text = bestScore.ToString();
         }
         curScoreText.text = Score.ToString();
 
-        PlayerPrefs.GetFloat("bestScore", 0);
+        PlayerPrefs.GetFloat("bestScore", bestScore);
         PlayerPrefs.Save();
     }
 
@@ -101,8 +101,8 @@ public class UIManager : MonoBehaviour
 
         if(Score >= bestScore)
         {
-            PlayerPrefs.SetFloat("Score", Score);
-            PlayerPrefs.Save();
+            Debug.Log("µé¾î¿È");
+            PlayerPrefs.SetFloat("bestScore", Score);
         }
     }
 }
