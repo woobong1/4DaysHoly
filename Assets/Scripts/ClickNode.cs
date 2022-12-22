@@ -8,7 +8,7 @@ public class ClickNode : MonoBehaviour
     Vector2 limit = new Vector2(0, 4f);
 
     public List<GameObject> prefabList = new List<GameObject>();
-    
+
     int ranNum;
 
     [HideInInspector] public bool nodeFlag = true;
@@ -78,6 +78,7 @@ public class ClickNode : MonoBehaviour
         yield return new WaitForSeconds(1.5f);
 
         ranNum = Random.Range(0, combineCheck);
+
         Instantiate(drawObj[ranNum], limit, Quaternion.identity);
         nodeFlag = true;
     }

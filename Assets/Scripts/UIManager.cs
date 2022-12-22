@@ -101,7 +101,6 @@ public class UIManager : MonoBehaviour
 
         if(Score >= bestScore)
         {
-            Debug.Log("µé¾î¿È");
             PlayerPrefs.SetFloat("bestScore", Score);
         }
     }

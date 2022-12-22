@@ -6,12 +6,14 @@ public class Check : MonoBehaviour
 {
     [SerializeField] string myTag = "";
 
-    string nextName;
     public delegate void transInfo(string str1, Vector2 vec2);
     public transInfo TransInfo = null;
-    UIManager uIManager = null;
 
+    UIManager uIManager = null;  
     ObjectInit objectInit = null;
+
+    string nextName;
+    public bool a = false;
 
     private void Awake()
     {
@@ -24,9 +26,18 @@ public class Check : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        if (a == true)
+            return;
 
         if (collision.collider.CompareTag(myTag))
-        {
+        {            
+
+            if (collision.gameObject.GetComponent<Check>().a == true)
+            {
+                Debug.Log("이미 충돌");
+                return;
+            }
+
             for (int i = 0; i < objectInit.cookieObjectTest.Count; i++)
             {
                 if (myTag == objectInit.cookieObjectTest[i] && objectInit.cookieObjectTest.Count >= i + 1)
@@ -34,23 +45,29 @@ public class Check : MonoBehaviour
                     nextName = objectInit.cookieObjectTest[i + 1];
                 }
             }
-            gameObject.tag = "none";
-            collision.gameObject.tag = "none1";
+
+            // gameObject.tag = "Untagged";
+            // collision.gameObject.tag = "Untagged";
 
             if (collision.gameObject.transform.position.y > gameObject.transform.position.y)
             {
+                Debug.Log("충돌 11");
                 TransInfo(nextName, transform.position);
                 SendScore(gameObject.name);
+                a = true;
             }
 
             else if (collision.gameObject.transform.position.y < gameObject.transform.position.y)
             {
+                Debug.Log("충돌 22");
                 TransInfo(nextName, collision.gameObject.transform.position);
                 SendScore(gameObject.name);
+                a = true;
             }
 
             else if (collision.gameObject.transform.position.y == gameObject.transform.position.y)
             {
+                Debug.Log("충돌 33");
                 Vector2 vec2 = Vector2.zero;
                 float getPosX = (transform.position.x + collision.gameObject.transform.position.x) * 0.5f;
                 float getPosY = (transform.position.y + collision.gameObject.transform.position.y) * 0.5f;
@@ -59,6 +76,7 @@ public class Check : MonoBehaviour
 
                 TransInfo(nextName, vec2);
                 SendScore(gameObject.name);
+                a = true;
             }
 
             else
