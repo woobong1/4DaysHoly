@@ -31,7 +31,7 @@ public class UIManager : MonoBehaviour
         }
         curScoreText.text = Score.ToString();
 
-        PlayerPrefs.SetFloat("bestScore", Score);
+        PlayerPrefs.GetFloat("bestScore", 0);
         PlayerPrefs.Save();
     }
 
@@ -98,5 +98,11 @@ public class UIManager : MonoBehaviour
     {
         Score += score * 0.5f;
         curScoreText.text = Score.ToString();
+
+        if(Score >= bestScore)
+        {
+            PlayerPrefs.SetFloat("Score", Score);
+            PlayerPrefs.Save();
+        }
     }
 }
