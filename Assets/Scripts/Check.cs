@@ -13,7 +13,7 @@ public class Check : MonoBehaviour
     ObjectInit objectInit = null;
 
     string nextName;
-    public bool a = false;
+    public bool isEnter = false;
 
     private void Awake()
     {
@@ -26,13 +26,13 @@ public class Check : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (a == true)
+        if (isEnter == true)
             return;
 
         if (collision.collider.CompareTag(myTag))
         {            
 
-            if (collision.gameObject.GetComponent<Check>().a == true)
+            if (collision.gameObject.GetComponent<Check>().isEnter == true)
             {
                 Debug.Log("이미 충돌");
                 return;
@@ -54,7 +54,7 @@ public class Check : MonoBehaviour
                 Debug.Log("충돌 11");
                 TransInfo(nextName, transform.position);
                 SendScore(gameObject.name);
-                a = true;
+                isEnter = true;
             }
 
             else if (collision.gameObject.transform.position.y < gameObject.transform.position.y)
@@ -62,7 +62,7 @@ public class Check : MonoBehaviour
                 Debug.Log("충돌 22");
                 TransInfo(nextName, collision.gameObject.transform.position);
                 SendScore(gameObject.name);
-                a = true;
+                isEnter = true;
             }
 
             else if (collision.gameObject.transform.position.y == gameObject.transform.position.y)
@@ -76,7 +76,7 @@ public class Check : MonoBehaviour
 
                 TransInfo(nextName, vec2);
                 SendScore(gameObject.name);
-                a = true;
+                isEnter = true;
             }
 
             else

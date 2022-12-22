@@ -15,7 +15,8 @@ public class UIManager : MonoBehaviour
 
     [SerializeField] TextMeshProUGUI curScoreText = null;
     [SerializeField] TextMeshProUGUI highScoreText = null;
-    
+    [SerializeField] TextMeshProUGUI inputMouse = null;
+
     public float Score = 0;
     private float bestScore = 0;
 
@@ -50,6 +51,7 @@ public class UIManager : MonoBehaviour
         {
             map[i].SetActive(false);
         }
+        inputMouse.enabled = false;
     }
 
     public void GameStart()
@@ -74,6 +76,7 @@ public class UIManager : MonoBehaviour
         {
             optionButtonObject[i].SetActive(false);
         }
+
     }
 
     public void Restart()
@@ -103,5 +106,19 @@ public class UIManager : MonoBehaviour
         {
             PlayerPrefs.SetFloat("bestScore", Score);
         }
+    }
+
+    IEnumerator BlinkText()
+    {
+        inputMouse.enabled = true;
+
+        while (Input.GetMouseButton(0))
+        {
+            inputMouse.text = "";
+            yield return new WaitForSeconds(0.5f);
+            inputMouse.text = "Click to Start";
+            yield return new WaitForSeconds(0.5f);
+        }
+        yield return null;
     }
 }
