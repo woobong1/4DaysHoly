@@ -6,6 +6,7 @@ public class ClickNode : MonoBehaviour
 {
     [SerializeField] GameObject[] drawObj;
     Vector2 limit = new Vector2(0, 4f);
+    [SerializeField]AudioSource audio = null;
 
     public List<GameObject> prefabList = new List<GameObject>();
 
@@ -22,6 +23,11 @@ public class ClickNode : MonoBehaviour
     [HideInInspector] public bool gameStart = false;
     [HideInInspector] public int index = 0;
     [HideInInspector] public int combineCheck = 2;
+
+    private void Start()
+    {
+        audio.enabled = false;
+    }
 
     private void Update()
     {
@@ -80,11 +86,19 @@ public class ClickNode : MonoBehaviour
         ranNum = Random.Range(0, combineCheck);
 
         Instantiate(drawObj[ranNum], limit, Quaternion.identity);
+        StartCoroutine(SoundEnabled());
         nodeFlag = true;
     }
 
     public void OnStartButton()
     {
         gameStart = true;
+    }
+
+    IEnumerator SoundEnabled()
+    {
+        audio.enabled = true;
+        yield return new WaitForSeconds(0.5f);
+        audio.enabled = false;
     }
 }

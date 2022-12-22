@@ -96,7 +96,7 @@ public class UIManager : MonoBehaviour
 
     public void ScoreAdd(float score)
     {
-        Score += score * 0.5f;
+        Score += score;
         curScoreText.text = Score.ToString();
 
         if(Score >= bestScore)
