@@ -18,7 +18,7 @@ public class Player : MonoBehaviour
     [HideInInspector] public bool flag = false;
 
     [SerializeField] AudioSource audio = null;
-    
+
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();

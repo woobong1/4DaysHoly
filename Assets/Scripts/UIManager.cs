@@ -19,13 +19,13 @@ public class UIManager : MonoBehaviour
 
     public float Score = 0;
     private float bestScore = 0;
-
+    private bool isStart = false;
 
     private void Awake()
     {
         Init();
 
-        if(PlayerPrefs.HasKey("bestScore"))
+        if (PlayerPrefs.HasKey("bestScore"))
         {
             bestScore = PlayerPrefs.GetFloat("bestScore");
             highScoreText.text = bestScore.ToString();
@@ -39,6 +39,7 @@ public class UIManager : MonoBehaviour
     void Update()
     {
         EndGame();
+        BlinkTextDestroy();
     }
 
     private void Init()
@@ -76,7 +77,8 @@ public class UIManager : MonoBehaviour
         {
             optionButtonObject[i].SetActive(false);
         }
-
+        inputMouse.enabled = true;
+        isStart = true;
     }
 
     public void Restart()
@@ -102,23 +104,17 @@ public class UIManager : MonoBehaviour
         Score += score;
         curScoreText.text = Score.ToString();
 
-        if(Score >= bestScore)
+        if (Score >= bestScore)
         {
             PlayerPrefs.SetFloat("bestScore", Score);
         }
     }
 
-    IEnumerator BlinkText()
+    public void BlinkTextDestroy()
     {
-        inputMouse.enabled = true;
-
-        while (Input.GetMouseButton(0))
+        if (isStart == true && Input.GetMouseButtonDown(0))
         {
-            inputMouse.text = "";
-            yield return new WaitForSeconds(0.5f);
-            inputMouse.text = "Click to Start";
-            yield return new WaitForSeconds(0.5f);
+            inputMouse.enabled = false;
         }
-        yield return null;
     }
 }

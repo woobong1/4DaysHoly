@@ -19,5 +19,4 @@ public class SoundManager : MonoBehaviour
         if (timer <= 2)
             audio.volume = timer / 2;
     }
-
 }
