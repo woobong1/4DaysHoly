@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    [SerializeField] AudioSource audioSource = null;
+
     Rigidbody2D rb;
     SpriteRenderer sr;
     PolygonCollider2D pc;
@@ -19,6 +21,13 @@ public class Player : MonoBehaviour
     
     private void Start()
     {
+        audioSource = GetComponent<AudioSource>();
+        audioSource.enabled = false;
+        if (this.transform.position.y > 3.9f)
+        {
+            StartCoroutine(AudioPlay());
+        }
+
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
         pc = GetComponent<PolygonCollider2D>();
@@ -29,6 +38,13 @@ public class Player : MonoBehaviour
         StartCoroutine(ScaleSize());
         ranBoom = Random.Range(0, 4);
     }
+    IEnumerator AudioPlay()
+    {
+        audioSource.enabled = true;
+        yield return new WaitForSeconds(1f);
+        audioSource.enabled = false;
+    }
+
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("DeadLine"))

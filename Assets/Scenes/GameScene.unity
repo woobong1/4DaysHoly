@@ -521,7 +521,6 @@ MonoBehaviour:
   - {fileID: 5583697578800439826, guid: 1d26c314cb3b6c94b9337f0fad4004d3, type: 3}
   - {fileID: 2169370586704794111, guid: bec2b5bf01d57e24582e41a6a0506c6e, type: 3}
   prefabList: []
-  audioSource: {fileID: 519420036}
   nodeFlag: 1
   cookie3: 0
   cookie4: 0
@@ -1542,7 +1541,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
