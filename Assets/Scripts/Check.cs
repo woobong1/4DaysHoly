@@ -74,34 +74,34 @@ public class Check : MonoBehaviour
         switch (CookieName)
         {
             case "0_choco cookie(Clone)":
-                uIManager.Score += 1;
+                uIManager.ScoreAdd(1);
                 break;
             case "1_oreo cookie(Clone)":
-                uIManager.Score += 3;
+                uIManager.ScoreAdd(3);
                 break;
             case "2_macharong(Clone)":
-                uIManager.Score += 9;
+                uIManager.ScoreAdd(9);
                 break;
             case "3_heart cake(Clone)":
-                uIManager.Score += 27;
+                uIManager.ScoreAdd(27);
                 break;
             case "4_dounut(Clone)":
-                uIManager.Score += 81;
+                uIManager.ScoreAdd(81);
                 break;
             case "5_roll cake(Clone)":
-                uIManager.Score += 243;
+                uIManager.ScoreAdd(243);
                 break;
             case "6_pudding(Clone)":
-                uIManager.Score += 729;
+                uIManager.ScoreAdd(729);
                 break;
             case "7_candy corn(Clone)":
-                uIManager.Score += 2187;
+                uIManager.ScoreAdd(2187);
                 break;
             case "8_cheese cake(Clone)":
-                uIManager.Score += 6561;
+                uIManager.ScoreAdd(6561);
                 break;
             case "9_apple(Clone)":
-                uIManager.Score += 19683;
+                uIManager.ScoreAdd(19683);
                 break;
             default:
                 Debug.Log("Score Error");
