@@ -6,7 +6,6 @@ using System;
 public class ObjectInit : MonoBehaviour
 {
     public List<string> cookieObjectTest = new List<string>();
-    int count = 0;
 
     private void Awake()
     {
@@ -29,18 +28,13 @@ public class ObjectInit : MonoBehaviour
 
     public void ObjectSynthetic(string name, Vector2 position)
     {
-        count++;
-        if (count == 2)
+        GameObject SyntheticObject = null;
+        SyntheticObject = Instantiate(Resources.Load(name, typeof(GameObject)), position, Quaternion.identity) as GameObject;
+        SyntheticObject.AddComponent<PolygonCollider2D>();
+        Player pleyer = null;
+        if (SyntheticObject.TryGetComponent<Player>(out pleyer) == true)
         {
-            GameObject SyntheticObject = null;
-            SyntheticObject = Instantiate(Resources.Load(name, typeof(GameObject)), position, Quaternion.identity) as GameObject;
-            SyntheticObject.AddComponent<PolygonCollider2D>();
-            Player pleyer = null;
-            if (SyntheticObject.TryGetComponent<Player>(out pleyer) == true)
-            {
-                pleyer.flag = true;
-            }
-            count = 0;
+            pleyer.flag = true;
         }
     }
 }
