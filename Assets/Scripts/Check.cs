@@ -34,6 +34,8 @@ public class Check : MonoBehaviour
                     nextName = objectInit.cookieObjectTest[i + 1];
                 }
             }
+            gameObject.tag = "none";
+            collision.gameObject.tag = "none1";
 
             if (collision.gameObject.transform.position.y > gameObject.transform.position.y)
             {
