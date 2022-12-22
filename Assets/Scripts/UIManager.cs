@@ -10,7 +10,8 @@ public class UIManager : MonoBehaviour
     [SerializeField] GameObject[] scoreUI = null;
     [SerializeField] GameObject[] map = null;
     [SerializeField] GameObject StartGame = null;
-    [SerializeField] GameObject startButton = null;
+    [SerializeField] GameObject[] startButtonObject = null;
+    [SerializeField] GameObject[] optionButtonObject = null;
 
     [SerializeField] TextMeshProUGUI curScoreText = null;
     [SerializeField] TextMeshProUGUI highScoreText = null;
@@ -39,7 +40,6 @@ public class UIManager : MonoBehaviour
         EndGame();
     }
 
-
     private void Init()
     {
         for (int i = 0; i < scoreUI.Length; i++)
@@ -65,7 +65,15 @@ public class UIManager : MonoBehaviour
         }
         StartGame.SetActive(false);
 
-        startButton.SetActive(false);
+        for (int i = 0; i < startButtonObject.Length; i++)
+        {
+            startButtonObject[i].SetActive(false);
+        }
+
+        for (int i = 0; i < optionButtonObject.Length; i++)
+        {
+            optionButtonObject[i].SetActive(false);
+        }
     }
 
     public void Restart()
@@ -75,7 +83,6 @@ public class UIManager : MonoBehaviour
 
     public void EndGame()
     {
-        //UnityEditor.EditorApplication.isPlaying = false;
         if (Input.GetKeyDown(KeyCode.Escape))
         {
 #if UNITY_EDITOR
