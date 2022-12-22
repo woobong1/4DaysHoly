@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEditor;
 
 public class UIManager : MonoBehaviour
 {
@@ -9,10 +10,9 @@ public class UIManager : MonoBehaviour
     [SerializeField] GameObject[] map = null;
     [SerializeField] GameObject StartGame = null;
     [SerializeField] GameObject startButton = null;
-    
+
     private void Awake()
     {
-        Screen.SetResolution(1080, 1920, false);
     }
 
     // Start is called before the first frame update
@@ -65,8 +65,12 @@ public class UIManager : MonoBehaviour
         //UnityEditor.EditorApplication.isPlaying = false;
         if (Input.GetKeyDown(KeyCode.Escape))
         {
+#if UNITY_EDITOR
+            EditorApplication.ExitPlaymode();
+#else
             Debug.Log("게임 종료");
             Application.Quit();
+#endif
         }
     }
 }
