@@ -17,15 +17,15 @@ public class ClickNode : MonoBehaviour
     [HideInInspector] public bool cookie6 = false;
     [HideInInspector] public bool cookie7 = false;
     [HideInInspector] public bool cookie8 = false;
-    [HideInInspector] public bool gameOver = false;
+    [HideInInspector] public bool gameOver = true;
     [HideInInspector] public int combineCheck = 2;
 
     int ranNum;
 
     private void Start()
     {
-        ranNum = Random.Range(0, combineCheck);
-        Instantiate(drawObj[ranNum], limit, Quaternion.identity);
+       //ranNum = Random.Range(0, combineCheck);
+       //Instantiate(drawObj[ranNum], limit, Quaternion.identity);
     }
 
 
@@ -33,6 +33,7 @@ public class ClickNode : MonoBehaviour
     {
         if (gameOver == false)
         {
+            Debug.Log("¤»¤» µé¾î¿È");
             if (Input.GetMouseButtonDown(0) && nodeFlag == true)
             {
                 nodeFlag = false;
@@ -83,5 +84,10 @@ public class ClickNode : MonoBehaviour
         ranNum = Random.Range(0, combineCheck);
         Instantiate(drawObj[ranNum], limit, Quaternion.identity);
         nodeFlag = true;
+    }
+
+    public void OnStartButton()
+    {
+        gameOver = false;
     }
 }
