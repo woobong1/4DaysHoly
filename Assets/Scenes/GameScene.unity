@@ -1359,7 +1359,7 @@ GameObject:
   - component: {fileID: 1401055183}
   - component: {fileID: 1401055184}
   m_Layer: 5
-  m_Name: CurScoreText (1)
+  m_Name: CurScoreInputText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1703,7 +1703,7 @@ GameObject:
   - component: {fileID: 1782321211}
   - component: {fileID: 1782321210}
   m_Layer: 5
-  m_Name: HighScoreText (1)
+  m_Name: HighScoreInputText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -16,7 +16,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI highScoreText = null;
     private int savedScore = 0;
     private string KeyString = "HighScore";
-    public static int Score = 0;
+    public int Score = 0;
 
     private void Awake()
     {
@@ -79,13 +79,19 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    public void AddScore(int score)
+    public void AddScore()
     {
-        curScoreText.text = savedScore.ToString("0");
+        curScoreText.text += savedScore.ToString("0");
 
         if (Score > savedScore)
         {
             PlayerPrefs.SetInt(KeyString, Score);
         }
     }
+
+    public void Add()
+    {
+        Debug.Log(Score);
+    }
+
 }

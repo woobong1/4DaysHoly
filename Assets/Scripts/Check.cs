@@ -19,7 +19,7 @@ public class Check : MonoBehaviour
         {
             TransInfo = objectInit.ObjectSynthetic;
         }
-        uIManager = GetComponent<UIManager>();
+        uIManager = FindObjectOfType<UIManager>();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -28,7 +28,7 @@ public class Check : MonoBehaviour
         if (collision.collider.CompareTag(myTag))
         {
             for (int i = 0; i < objectInit.cookieObjectTest.Count; i++)
-            {   
+            {
                 if (myTag == objectInit.cookieObjectTest[i] && objectInit.cookieObjectTest.Count >= i + 1)
                 {
                     nextName = objectInit.cookieObjectTest[i + 1];
@@ -69,40 +69,39 @@ public class Check : MonoBehaviour
         }
     }
 
-    private void SendScore(string CookieName)
+    public void SendScore(string CookieName)
     {
-        
         switch (CookieName)
         {
-            case "0_choco cookie":
-                uIManager.AddScore(1);
+            case "0_choco cookie(Clone)":
+                uIManager.Score += 1;
                 break;
-            case "1_oreo cookie":
-                uIManager.AddScore(3);
+            case "1_oreo cookie(Clone)":
+                uIManager.Score += 3;
                 break;
-            case "2_macharong":
-                uIManager.AddScore(9);
+            case "2_macharong(Clone)":
+                uIManager.Score += 9;
                 break;
-            case "3_heart cake":
-                uIManager.AddScore(27);
+            case "3_heart cake(Clone)":
+                uIManager.Score += 27;
                 break;
-            case "4_dounut":
-                uIManager.AddScore(81);
+            case "4_dounut(Clone)":
+                uIManager.Score += 81;
                 break;
-            case "5_roll cake":
-                uIManager.AddScore(243);
+            case "5_roll cake(Clone)":
+                uIManager.Score += 243;
                 break;
-            case "6_pudding":
-                uIManager.AddScore(729);
+            case "6_pudding(Clone)":
+                uIManager.Score += 729;
                 break;
-            case "7_candy corn":
-                uIManager.AddScore(2187);
+            case "7_candy corn(Clone)":
+                uIManager.Score += 2187;
                 break;
-            case "8_cheese cake":
-                uIManager.AddScore(6561);
+            case "8_cheese cake(Clone)":
+                uIManager.Score += 6561;
                 break;
-            case "9_apple":
-                uIManager.AddScore(19683);
+            case "9_apple(Clone)":
+                uIManager.Score += 19683;
                 break;
             default:
                 Debug.Log("Score Error");
