@@ -136,7 +136,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myTag: 8_cheese cake
-  a: 0
+  isEnter: 0
 --- !u!82 &3828578730851737911
 AudioSource:
   m_ObjectHideFlags: 0

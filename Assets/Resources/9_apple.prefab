@@ -136,7 +136,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myTag: 9_apple
-  a: 0
+  isEnter: 0
 --- !u!82 &5713176657615918647
 AudioSource:
   m_ObjectHideFlags: 0

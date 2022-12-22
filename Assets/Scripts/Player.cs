@@ -14,11 +14,11 @@ public class Player : MonoBehaviour
     float limitLeft = -3;
     float limitRight = 3;
     float firstY = 3.8f;
-    float timer;
-    int ranBoom;
+    float timer = 0;
+    float ranBoom = 0;
     bool flagClick = false;
     [HideInInspector] public bool flag = false;
-    
+
     private void Start()
     {
         audioSource = GetComponent<AudioSource>();
@@ -36,7 +36,6 @@ public class Player : MonoBehaviour
         firstScale = new Vector2(transform.localScale.x, transform.localScale.y);
         transform.localScale = transform.localScale / 2;
         StartCoroutine(ScaleSize());
-        ranBoom = Random.Range(0, 4);
     }
     IEnumerator AudioPlay()
     {
@@ -118,14 +117,18 @@ public class Player : MonoBehaviour
         transform.localScale = firstScale;
     }
 
-    void Gameover()
+    public void Gameover()
     {
+        Debug.Log("Gameover1");
+        ranBoom = Random.Range(0, 3);
+        Debug.Log(ranBoom);
         Destroy(gameObject, ranBoom);
+        Debug.Log("GameOver2");
     }
 
     IEnumerator ColCall()
     {
-        if(GetComponent<PolygonCollider2D>() == null)
+        if (GetComponent<PolygonCollider2D>() == null)
         {
             yield return new WaitForSeconds(0.1f);
             gameObject.AddComponent<PolygonCollider2D>();

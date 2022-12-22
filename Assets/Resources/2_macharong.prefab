@@ -136,7 +136,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myTag: 2_macharong
-  a: 0
+  isEnter: 0
 --- !u!82 &910559451558573435
 AudioSource:
   m_ObjectHideFlags: 0

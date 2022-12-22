@@ -136,7 +136,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myTag: 1_oreo cookie
-  a: 0
+  isEnter: 0
 --- !u!82 &-8838441102025920057
 AudioSource:
   m_ObjectHideFlags: 0

@@ -122,7 +122,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myTag: 0_choco cookie
-  a: 0
+  isEnter: 0
 --- !u!114 &-5721369152293367068
 MonoBehaviour:
   m_ObjectHideFlags: 0

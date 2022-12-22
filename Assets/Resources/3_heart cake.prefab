@@ -136,7 +136,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myTag: 3_heart cake
-  a: 0
+  isEnter: 0
 --- !u!82 &8016361249917839322
 AudioSource:
   m_ObjectHideFlags: 0

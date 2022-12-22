@@ -5,12 +5,13 @@ using UnityEngine;
 public class DeadLine : MonoBehaviour
 {
     ClickNode clickNode;
-    float timer;
 
-   [HideInInspector] public GameObject target;
+    float timer = 0;
+    bool isCheck = false;
 
+    [HideInInspector] public GameObject target;
 
-    private void Start()
+    private void Awake()
     {
         clickNode = FindObjectOfType<ClickNode>();
     }
@@ -23,13 +24,26 @@ public class DeadLine : MonoBehaviour
           collision.CompareTag("6_pudding") || collision.CompareTag("7_candy corn") ||
            collision.CompareTag("8_cheese cake") || collision.CompareTag("9_apple"))
         {
-            Debug.Log("´ê¾Ò¾î!!!!!!!");
+            if (isCheck == true) return;
 
-            timer += Time.deltaTime;
+            else if (isCheck == false)
+            {
+                timer += Time.deltaTime;
+                Debug.Log(timer);
+            }
 
             if (timer > 3f)
+            {
+                collision.gameObject.GetComponent<Player>().Gameover();
+                isCheck = true;
                 clickNode.gameOver = true;
+            }
         }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (isCheck == false) timer = 0;
     }
 }
 
