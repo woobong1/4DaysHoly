@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEditor;
+using TMPro;
 
 public class UIManager : MonoBehaviour
 {
@@ -11,21 +12,32 @@ public class UIManager : MonoBehaviour
     [SerializeField] GameObject StartGame = null;
     [SerializeField] GameObject startButton = null;
 
+    [SerializeField] TextMeshProUGUI curScoreText = null;
+    [SerializeField] TextMeshProUGUI highScoreText = null;
+    private int savedScore = 0;
+    private string KeyString = "HighScore";
+    public static int Score = 0;
+
     private void Awake()
     {
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
         Init();
+
+        savedScore = PlayerPrefs.GetInt(KeyString,0);
+        highScoreText.text = savedScore.ToString("0");  
     }
 
-    // Update is called once per frame
     void Update()
     {
         EndGame();
+
+        curScoreText.text =  savedScore.ToString("0");
+
+        if(Score > savedScore)
+        {
+            PlayerPrefs.SetInt(KeyString, Score);
+        }
     }
+
 
     private void Init()
     {
