@@ -68,6 +68,7 @@ public class Check : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
     private void SendScore(string CookieName)
     {
         

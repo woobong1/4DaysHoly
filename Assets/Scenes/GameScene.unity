@@ -557,6 +557,8 @@ MonoBehaviour:
   - {fileID: 1960308894}
   StartGame: {fileID: 191898441}
   startButton: {fileID: 1739660641}
+  curScoreText: {fileID: 1323020572}
+  highScoreText: {fileID: 1891025539}
 --- !u!1 &871646575
 GameObject:
   m_ObjectHideFlags: 0
