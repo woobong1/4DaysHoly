@@ -8,7 +8,8 @@ public class ClickNode : MonoBehaviour
     Vector2 limit = new Vector2(0, 4f);
 
     public List<GameObject> prefabList = new List<GameObject>();
-    public int index = 0;
+    
+    int ranNum;
 
     [HideInInspector] public bool nodeFlag = true;
     [HideInInspector] public bool cookie3 = false;
@@ -17,31 +18,26 @@ public class ClickNode : MonoBehaviour
     [HideInInspector] public bool cookie6 = false;
     [HideInInspector] public bool cookie7 = false;
     [HideInInspector] public bool cookie8 = false;
-    [HideInInspector] public bool gameOver = true;
+    [HideInInspector] public bool gameOver = false;
+    [HideInInspector] public bool gameStart = false;
+    [HideInInspector] public int index = 0;
     [HideInInspector] public int combineCheck = 2;
-
-    int ranNum;
-
-    private void Start()
-    {
-       //ranNum = Random.Range(0, combineCheck);
-       //Instantiate(drawObj[ranNum], limit, Quaternion.identity);
-    }
-
 
     private void Update()
     {
-        if (gameOver == false)
+        if (gameStart == true)
         {
-            Debug.Log("¤»¤» µé¾î¿È");
-            if (Input.GetMouseButtonDown(0) && nodeFlag == true)
+            if (gameOver == false)
             {
-                nodeFlag = false;
+                if (Input.GetMouseButtonDown(0) && nodeFlag == true)
+                {
+                    nodeFlag = false;
 
-                if (nodeFlag == false)
-                    StartCoroutine(NextDropObj());
+                    if (nodeFlag == false)
+                        StartCoroutine(NextDropObj());
+                }
+                NextCombine();
             }
-            NextCombine();
         }
     }
 
@@ -88,6 +84,6 @@ public class ClickNode : MonoBehaviour
 
     public void OnStartButton()
     {
-        gameOver = false;
+        gameStart = true;
     }
 }

@@ -15,16 +15,24 @@ public class UIManager : MonoBehaviour
 
     [SerializeField] TextMeshProUGUI curScoreText = null;
     [SerializeField] TextMeshProUGUI highScoreText = null;
-    private int savedScore = 0;
-    private string KeyString = "HighScore";
-    public int Score = 0;
+    
+    public float Score = 0;
+    private float bestScore = 0;
+
 
     private void Awake()
     {
         Init();
 
-        savedScore = PlayerPrefs.GetInt(KeyString,0);
-        highScoreText.text = savedScore.ToString("0");  
+        if(PlayerPrefs.HasKey("bestScore"))
+        {
+            bestScore = PlayerPrefs.GetInt("bestScore");
+            highScoreText.text = bestScore.ToString();
+        }
+        curScoreText.text = Score.ToString();
+
+        PlayerPrefs.GetFloat("bestScore", 0);
+        PlayerPrefs.Save();
     }
 
     void Update()
@@ -86,13 +94,15 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    public void AddScore()
+    public void ScoreAdd(float score)
     {
-        curScoreText.text += savedScore.ToString("0");
+        Score += score * 0.5f;
+        curScoreText.text = Score.ToString();
 
-        if (Score > savedScore)
+        if(Score >= bestScore)
         {
-            PlayerPrefs.SetInt(KeyString, Score);
+            PlayerPrefs.SetFloat("Score", Score);
+            PlayerPrefs.Save();
         }
     }
 }
