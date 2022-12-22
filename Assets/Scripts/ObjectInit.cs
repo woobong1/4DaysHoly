@@ -34,6 +34,7 @@ public class ObjectInit : MonoBehaviour
         {
             GameObject SyntheticObject = null;
             SyntheticObject = Instantiate(Resources.Load(name, typeof(GameObject)), position, Quaternion.identity) as GameObject;
+            SyntheticObject.AddComponent<PolygonCollider2D>();
             Player pleyer = null;
             if (SyntheticObject.TryGetComponent<Player>(out pleyer) == true)
             {
