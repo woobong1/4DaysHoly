@@ -13,12 +13,15 @@ public class ClickNode : MonoBehaviour
     int ranNum;
 
     [HideInInspector] public bool nodeFlag = true;
-    [HideInInspector] public bool cookie3 = false;
-    [HideInInspector] public bool cookie4 = false;
-    [HideInInspector] public bool cookie5 = false;
-    [HideInInspector] public bool cookie6 = false;
-    [HideInInspector] public bool cookie7 = false;
-    [HideInInspector] public bool cookie8 = false;
+    [HideInInspector] public bool macharong = false;
+    [HideInInspector] public bool heartcake  = false;
+    [HideInInspector] public bool donut = false;
+    [HideInInspector] public bool rollcake = false;
+    [HideInInspector] public bool pudding = false;
+    [HideInInspector] public bool candyCorn = false;
+    [HideInInspector] public bool cheesecake = false;
+    [HideInInspector] public bool apple = false;
+
     [HideInInspector] public bool gameOver = false;
     [HideInInspector] public bool gameStart = false;
     [HideInInspector] public int index = 0;
@@ -36,40 +39,46 @@ public class ClickNode : MonoBehaviour
                     nodeFlag = false;
 
                     if (nodeFlag == false)
+                    {
+                        NextCombine();
                         StartCoroutine(NextDropObj());
+                    }
                 }
-                NextCombine();
             }
         }
     }
 
     void NextCombine()
     {
-        if (cookie3 == true && combineCheck < 2)
+        if (macharong == true && combineCheck < 3)
+        {
+            combineCheck += 1;    
+        }
+        if (heartcake == true && combineCheck < 4)
+        {
+            combineCheck += 1;       
+        }
+        if (donut == true && combineCheck < 5)
+        {
+            combineCheck += 1;          
+        }
+        if (rollcake == true && combineCheck < 6)
+        {
+            combineCheck += 1;          
+        }
+        if (pudding == true && combineCheck < 7)
+        {
+            combineCheck += 1;   
+        }
+        if (candyCorn == true && combineCheck < 8)
         {
             combineCheck += 1;
         }
-        if (cookie4 == true && combineCheck < 3)
+        if (cheesecake == true && combineCheck < 9)
         {
             combineCheck += 1;
         }
-        if (cookie5 == true && combineCheck < 4)
-        {
-            combineCheck += 1;
-        }
-        if (cookie6 == true && combineCheck < 5)
-        {
-            combineCheck += 1;
-        }
-        if (cookie7 == true && combineCheck < 6)
-        {
-            combineCheck += 1;
-        }
-        if (cookie8 == true && combineCheck < 7)
-        {
-            combineCheck += 1;
-        }
-        if (cookie8 == true && combineCheck < 8)
+        if (apple == true && combineCheck < 10)
         {
             combineCheck += 1;
         }
@@ -77,7 +86,7 @@ public class ClickNode : MonoBehaviour
 
     IEnumerator NextDropObj()
     {
-        yield return new WaitForSeconds(1.2f);
+        yield return new WaitForSeconds(1.25f);
 
         ranNum = Random.Range(0, combineCheck);
         Instantiate(drawObj[ranNum], limit, Quaternion.identity);

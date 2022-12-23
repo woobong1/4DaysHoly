@@ -719,14 +719,22 @@ MonoBehaviour:
   - {fileID: 3587004615379869974, guid: 81409a9644e8dbf4ca5beaf5e140ab69, type: 3}
   - {fileID: 5583697578800439826, guid: 1d26c314cb3b6c94b9337f0fad4004d3, type: 3}
   - {fileID: 2169370586704794111, guid: bec2b5bf01d57e24582e41a6a0506c6e, type: 3}
+  - {fileID: 2183081631653595066, guid: 574920f9b75153a44ba361e0d1a7a525, type: 3}
+  - {fileID: 330240207852726287, guid: ba2edab2ccd34754896015dbb4696144, type: 3}
+  - {fileID: 8600496367254834795, guid: bbe4335c3f257224aaf069fcd3b75547, type: 3}
+  - {fileID: 8575199433087594527, guid: 64293f84825c5f146a62c3afe7c972ac, type: 3}
+  - {fileID: 5346168636020369869, guid: e4ed9654197682849b1bfa00fd6a4811, type: 3}
+  - {fileID: 5323546104494379861, guid: 5d0d4f244e836a942b885a7e0a1e267f, type: 3}
   prefabList: []
   nodeFlag: 1
-  cookie3: 0
-  cookie4: 0
-  cookie5: 0
-  cookie6: 0
-  cookie7: 0
-  cookie8: 0
+  macharong: 0
+  heartcake: 0
+  donut: 0
+  rollcake: 0
+  pudding: 0
+  candyCorn: 0
+  cheesecake: 0
+  apple: 0
   gameOver: 0
   gameStart: 0
   index: 0
