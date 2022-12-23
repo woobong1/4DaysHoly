@@ -131,8 +131,8 @@ public class Check : MonoBehaviour
                 break;
             case "8_cheese cake(Clone)":
                 uIManager.ScoreAdd(6561);
-                if (clickNode.apple == false)
-                    clickNode.apple = true;
+                //if (clickNode.apple == false)
+                //    clickNode.apple = true;
                 break;
             case "9_apple(Clone)":
                 uIManager.ScoreAdd(19683);

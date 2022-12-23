@@ -46,10 +46,19 @@ public class UIManager : MonoBehaviour
         PlayerPrefs.GetFloat("bestScore", bestScore);
         PlayerPrefs.Save();
     }
+    
 
     void Update()
     {
         BlinkTextDestroy();
+
+        if(Input.GetKeyDown(KeyCode.P))
+        {
+           
+                PlayerPrefs.DeleteKey("bestScore");
+            
+        }
+        
     }
 
     private void Init()

@@ -20,7 +20,7 @@ public class ClickNode : MonoBehaviour
     [HideInInspector] public bool pudding = false;
     [HideInInspector] public bool candyCorn = false;
     [HideInInspector] public bool cheesecake = false;
-    [HideInInspector] public bool apple = false;
+   // [HideInInspector] public bool apple = false;
 
     [HideInInspector] public bool gameOver = false;
     [HideInInspector] public bool gameStart = false;
@@ -78,10 +78,10 @@ public class ClickNode : MonoBehaviour
         {
             combineCheck += 1;
         }
-        if (apple == true && combineCheck < 10)
-        {
-            combineCheck += 1;
-        }
+        //if (apple == true && combineCheck < 10)
+        //{
+        //    combineCheck += 1;
+        //}
     }
 
     IEnumerator NextDropObj()
