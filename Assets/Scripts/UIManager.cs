@@ -14,6 +14,10 @@ public class UIManager : MonoBehaviour
     [SerializeField] GameObject[] startButtonObject = null;
     [SerializeField] GameObject[] optionButtonObject = null;
     [SerializeField] GameObject endGameUI = null;
+    [SerializeField] GameObject curScoreUI = null;
+    [SerializeField] GameObject highScoreUI = null;
+    [SerializeField] GameObject inGameMene = null;
+    [SerializeField] GameObject inGameCloseButton = null;
 
     [SerializeField] TextMeshProUGUI curScoreText = null;
     [SerializeField] TextMeshProUGUI curScoreText1 = null;
@@ -59,6 +63,9 @@ public class UIManager : MonoBehaviour
         }
         inputMouse.enabled = false;
         endGameUI.SetActive(false);
+        curScoreUI.SetActive(false);
+        highScoreUI.SetActive(false);
+        inGameMene.SetActive(false);
     }
 
     public void GameStart()
@@ -85,6 +92,11 @@ public class UIManager : MonoBehaviour
         }
         inputMouse.enabled = true;
         isStart = true;
+
+        curScoreUI.SetActive(true);
+        highScoreUI.SetActive(true);
+        inGameMene.SetActive(true);
+        inGameCloseButton.SetActive(false);
     }
 
     public void Restart()
@@ -123,6 +135,10 @@ public class UIManager : MonoBehaviour
 
     public void RenderEndUI()
     {
+        curScoreUI.SetActive(false);
+        highScoreUI.SetActive(false);
+        inGameMene.SetActive(false);
+
         if (PlayerPrefs.HasKey("bestScore"))
         {
             bestScore = PlayerPrefs.GetFloat("bestScore");
@@ -134,6 +150,15 @@ public class UIManager : MonoBehaviour
         curScoreText1.text = curScoreText.text;
         highScoreText.text = bestScore.ToString();
         endGameUI.SetActive(true);
+    }
 
+    public void ExitMenuClose()
+    {
+        inGameCloseButton.SetActive(false);
+    }
+
+    public void OpenExitMenu()
+    {
+        inGameCloseButton.SetActive(true);
     }
 }
