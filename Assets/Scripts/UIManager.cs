@@ -35,10 +35,8 @@ public class UIManager : MonoBehaviour
         {
             bestScore = PlayerPrefs.GetFloat("bestScore");
             highScoreText.text = bestScore.ToString();
-            highScoreText1 = highScoreText;
         }
         curScoreText.text = Score.ToString();
-        curScoreText1 = curScoreText;
 
         PlayerPrefs.GetFloat("bestScore", bestScore);
         PlayerPrefs.Save();
@@ -125,6 +123,17 @@ public class UIManager : MonoBehaviour
 
     public void RenderEndUI()
     {
+        if (PlayerPrefs.HasKey("bestScore"))
+        {
+            bestScore = PlayerPrefs.GetFloat("bestScore");
+            highScoreText1.text = bestScore.ToString();
+        }
+        PlayerPrefs.GetFloat("bestScore", bestScore);
+        PlayerPrefs.Save();
+
+        curScoreText1.text = curScoreText.text;
+        highScoreText.text = bestScore.ToString();
         endGameUI.SetActive(true);
+
     }
 }
