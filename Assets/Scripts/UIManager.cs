@@ -18,6 +18,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] GameObject highScoreUI = null;
     [SerializeField] GameObject inGameMene = null;
     [SerializeField] GameObject inGameCloseButton = null;
+    [SerializeField] GameObject InGameExitButton = null;
 
     [SerializeField] TextMeshProUGUI curScoreText = null;
     [SerializeField] TextMeshProUGUI curScoreText1 = null;
@@ -66,6 +67,7 @@ public class UIManager : MonoBehaviour
         curScoreUI.SetActive(false);
         highScoreUI.SetActive(false);
         inGameMene.SetActive(false);
+        InGameExitButton.SetActive(false);
     }
 
     public void GameStart()
@@ -96,7 +98,7 @@ public class UIManager : MonoBehaviour
         curScoreUI.SetActive(true);
         highScoreUI.SetActive(true);
         inGameMene.SetActive(true);
-        inGameCloseButton.SetActive(false);
+        inGameCloseButton.SetActive(true);
     }
 
     public void Restart()
@@ -154,11 +156,11 @@ public class UIManager : MonoBehaviour
 
     public void ExitMenuClose()
     {
-        inGameCloseButton.SetActive(false);
+        InGameExitButton.SetActive(false);
     }
 
     public void OpenExitMenu()
     {
-        inGameCloseButton.SetActive(true);
+        InGameExitButton.SetActive(true);
     }
 }
