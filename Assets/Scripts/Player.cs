@@ -154,7 +154,6 @@ public class Player : MonoBehaviour
         Destroy(gameObject, ranBoom);
 
         TransGameOver();
-        //Invoke("TransGameOver", delayNum);
     }
 
     IEnumerator ColCall()
