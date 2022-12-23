@@ -122,6 +122,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioSource: {fileID: -8838441102025920057}
+  effecPrefab: {fileID: 7763322832556881745, guid: c104e54346db68849a11774f135c0e70, type: 3}
   flag: 0
 --- !u!114 &-3151656329473936932
 MonoBehaviour:

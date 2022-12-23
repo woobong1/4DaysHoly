@@ -5,19 +5,34 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [SerializeField] AudioSource audioSource = null;
+    [SerializeField] GameObject effecPrefab = null;
 
     Rigidbody2D rb;
     SpriteRenderer sr;
     PolygonCollider2D pc;
+    ClickNode clickNode = null;
+    Player[] players = null;
+    GameObject effect = null;
+    UIManager uIManager = null;
 
     Vector2 firstScale;
+    Vector2 cookiePos = Vector2.zero;
     float limitLeft = -3;
     float limitRight = 3;
     float firstY = 3.8f;
     float timer = 0;
     float ranBoom = 0;
     bool flagClick = false;
+    bool isCheck = false;
+    float delayNum = 3f;
+
     [HideInInspector] public bool flag = false;
+
+    private void Awake()
+    {
+        clickNode = FindObjectOfType<ClickNode>();
+        uIManager = FindObjectOfType<UIManager>();
+    }
 
     private void Start()
     {
@@ -48,17 +63,30 @@ public class Player : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("DeadLine"))
         {
+            players = FindObjectsOfType<Player>();
+
             timer += Time.deltaTime;
             if (timer > 1f)
             {
                 sr.color = Color.red;
+            }
+
+            if (timer > 3f)
+            {
+                foreach (Player joint in players)
+                {
+                    joint.Gameover();
+                }
+
+                isCheck = true;
+                clickNode.gameOver = true;
             }
         }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("DeadLine"))
+        if (collision.gameObject.CompareTag("DeadLine") && isCheck == false)
         {
             timer = 0f;
 
@@ -119,11 +147,14 @@ public class Player : MonoBehaviour
 
     public void Gameover()
     {
-        Debug.Log("Gameover1");
-        ranBoom = Random.Range(0, 3);
-        Debug.Log(ranBoom);
+        cookiePos = gameObject.transform.position;
+        ranBoom = Random.Range(0f, 10f);
+        delayNum += ranBoom;
+        Invoke("RenderEffect", ranBoom);
         Destroy(gameObject, ranBoom);
-        Debug.Log("GameOver2");
+
+        TransGameOver();
+        //Invoke("TransGameOver", delayNum);
     }
 
     IEnumerator ColCall()
@@ -133,5 +164,14 @@ public class Player : MonoBehaviour
             yield return new WaitForSeconds(0.1f);
             gameObject.AddComponent<PolygonCollider2D>();
         }
+    }
+
+    private void RenderEffect()
+    {
+        effect = Instantiate(effecPrefab, cookiePos, Quaternion.identity);
+    }
+    private void TransGameOver()
+    {
+        uIManager.RenderEndUI();
     }
 }

@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEditor;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
@@ -12,14 +13,19 @@ public class UIManager : MonoBehaviour
     [SerializeField] GameObject StartGame = null;
     [SerializeField] GameObject[] startButtonObject = null;
     [SerializeField] GameObject[] optionButtonObject = null;
+    [SerializeField] GameObject endGameUI = null;
 
     [SerializeField] TextMeshProUGUI curScoreText = null;
+    [SerializeField] TextMeshProUGUI curScoreText1 = null;
     [SerializeField] TextMeshProUGUI highScoreText = null;
+    [SerializeField] TextMeshProUGUI highScoreText1 = null;
     [SerializeField] TextMeshProUGUI inputMouse = null;
 
     public float Score = 0;
     private float bestScore = 0;
     private bool isStart = false;
+
+    
 
     private void Awake()
     {
@@ -29,8 +35,10 @@ public class UIManager : MonoBehaviour
         {
             bestScore = PlayerPrefs.GetFloat("bestScore");
             highScoreText.text = bestScore.ToString();
+            highScoreText1 = highScoreText;
         }
         curScoreText.text = Score.ToString();
+        curScoreText1 = curScoreText;
 
         PlayerPrefs.GetFloat("bestScore", bestScore);
         PlayerPrefs.Save();
@@ -38,7 +46,6 @@ public class UIManager : MonoBehaviour
 
     void Update()
     {
-        EndGame();
         BlinkTextDestroy();
     }
 
@@ -53,6 +60,7 @@ public class UIManager : MonoBehaviour
             map[i].SetActive(false);
         }
         inputMouse.enabled = false;
+        endGameUI.SetActive(false);
     }
 
     public void GameStart()
@@ -83,20 +91,17 @@ public class UIManager : MonoBehaviour
 
     public void Restart()
     {
-
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void EndGame()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
 #if UNITY_EDITOR
             EditorApplication.ExitPlaymode();
 #else
             Debug.Log("게임 종료");
             Application.Quit();
 #endif
-        }
     }
 
     public void ScoreAdd(float score)
@@ -116,5 +121,10 @@ public class UIManager : MonoBehaviour
         {
             inputMouse.enabled = false;
         }
+    }
+
+    public void RenderEndUI()
+    {
+        endGameUI.SetActive(true);
     }
 }
