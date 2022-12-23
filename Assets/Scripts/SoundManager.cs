@@ -6,8 +6,11 @@ using UnityEngine.UI;
 public class SoundManager : MonoBehaviour
 {
     [SerializeField] AudioSource audio1 = null;
+    [SerializeField] Slider slider = null;
+
+    bool first = false;
     float timer;
-    
+
     private void Start()
     {
         audio1.volume = 0f;
@@ -16,7 +19,13 @@ public class SoundManager : MonoBehaviour
     private void Update()
     {
         timer += Time.deltaTime;
-        if (timer <= 2)
-            audio1.volume = timer / 4;
+        if (first == false)
+        {
+            if (timer <= 2)
+                audio1.volume = timer / 4;
+            first = true;
+        }
+
+        audio1.volume = slider.value;
     }
 }
