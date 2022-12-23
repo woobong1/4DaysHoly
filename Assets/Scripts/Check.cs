@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Check : MonoBehaviour
 {
+    ClickNode clickNode;
+
     [SerializeField] string myTag = "";
 
     public delegate void transInfo(string str1, Vector2 vec2);
@@ -22,6 +24,7 @@ public class Check : MonoBehaviour
             TransInfo = objectInit.ObjectSynthetic;
         }
         uIManager = FindObjectOfType<UIManager>();
+        clickNode = FindObjectOfType<ClickNode>();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -93,27 +96,43 @@ public class Check : MonoBehaviour
                 break;
             case "1_oreo cookie(Clone)":
                 uIManager.ScoreAdd(3);
+                if (clickNode.macharong == false)
+                    clickNode.macharong = true;
                 break;
             case "2_macharong(Clone)":
                 uIManager.ScoreAdd(9);
+                if (clickNode.heartcake == false)
+                    clickNode.heartcake = true;
                 break;
             case "3_heart cake(Clone)":
                 uIManager.ScoreAdd(27);
+                if (clickNode.donut == false)
+                    clickNode.donut = true;
                 break;
             case "4_dounut(Clone)":
                 uIManager.ScoreAdd(81);
+                if (clickNode.rollcake == false)
+                    clickNode.rollcake = true;
                 break;
             case "5_roll cake(Clone)":
                 uIManager.ScoreAdd(243);
+                if (clickNode.pudding == false)
+                    clickNode.pudding = true;
                 break;
             case "6_pudding(Clone)":
                 uIManager.ScoreAdd(729);
+                if (clickNode.candyCorn == false)
+                    clickNode.candyCorn = true;
                 break;
             case "7_candy corn(Clone)":
                 uIManager.ScoreAdd(2187);
+                if (clickNode.cheesecake == false)
+                    clickNode.cheesecake = true;
                 break;
             case "8_cheese cake(Clone)":
                 uIManager.ScoreAdd(6561);
+                if (clickNode.apple == false)
+                    clickNode.apple = true;
                 break;
             case "9_apple(Clone)":
                 uIManager.ScoreAdd(19683);

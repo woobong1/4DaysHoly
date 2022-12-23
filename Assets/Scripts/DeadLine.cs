@@ -29,7 +29,6 @@ public class DeadLine : MonoBehaviour
             else if (isCheck == false)
             {
                 timer += Time.deltaTime;
-                Debug.Log(timer);
             }
 
             if (timer > 3f)
