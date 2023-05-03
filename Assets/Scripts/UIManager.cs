@@ -30,7 +30,7 @@ public class UIManager : MonoBehaviour
     private float bestScore = 0;
     private bool isStart = false;
 
-    
+
 
     private void Awake()
     {
@@ -46,19 +46,17 @@ public class UIManager : MonoBehaviour
         PlayerPrefs.GetFloat("bestScore", bestScore);
         PlayerPrefs.Save();
     }
-    
+
 
     void Update()
     {
         BlinkTextDestroy();
 
-        if(Input.GetKeyDown(KeyCode.P))
+        if (Input.GetKeyDown(KeyCode.P))
         {
-           
-                PlayerPrefs.DeleteKey("bestScore");
-            
+            PlayerPrefs.DeleteKey("bestScore");
         }
-        
+
     }
 
     private void Init()
@@ -118,7 +116,7 @@ public class UIManager : MonoBehaviour
     public void EndGame()
     {
 #if UNITY_EDITOR
-            EditorApplication.ExitPlaymode();
+        EditorApplication.ExitPlaymode();
 #else
             Debug.Log("게임 종료");
             Application.Quit();
