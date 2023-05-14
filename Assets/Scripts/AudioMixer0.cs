@@ -11,7 +11,6 @@ public class AudioMixer0 : MonoBehaviour
     public Slider audioSLider;
     public Slider SFXsLider;
 
-
     public void AudioControl()
     {
         float sound = audioSLider.value;
