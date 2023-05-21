@@ -26,6 +26,7 @@ public class Player : MonoBehaviour
     bool isCheck = false;
     float delayNum = 3f;
 
+
     [HideInInspector] public bool flag = false;
 
     private void Awake()
